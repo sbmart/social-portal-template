@@ -13,7 +13,7 @@ function App() {
       }
     )
       .then(function (response) {
-        console.log(response)
+        // console.log(response)
         return response.json();
       })
       .then(function (myJson) {
@@ -27,7 +27,7 @@ function App() {
   return (
     <div className="App">
       {
-        data && data.length > 0 && data.map((item) => <p>{item.about}</p>)
+        data && data.length > 0 && data.map((item) => <p key={item._id}> {item.about}</p>)
       }
     </div>
   );
