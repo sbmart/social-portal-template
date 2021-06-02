@@ -62,7 +62,7 @@ function App() {
       </Header>
       <Grid>
         <Grid.Column width={4}>
-          <Image src='https://react.semantic-ui.com/images/wireframe/image.png' />
+          < Image src='./image.png' rounded />
         </Grid.Column>
         <Grid.Column width={12}>
           {
