@@ -17,34 +17,35 @@ import {
 
 function App() {
   const [data, setData] = useState([]);
-  const getData = () => {
-    fetch('localAPI.json'
-      , {
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        }
-      }
-    )
-      .then(function (response) {
-        // console.log(response)
-        return response.json();
-      })
-      .then(function (myJson) {
-        console.log(myJson);
-        setData(myJson)
-      });
-  }
+  const [mount, setMount] = useState(false)
   useEffect(() => {
-    getData()
+    function getData() {
+      fetch('localAPI.json'
+        , {
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          }
+        }
+      )
+        .then(function (response) {
+          // console.log(response)
+          return response.json();
+        })
+        .then(function (myJson) {
+          console.log(myJson);
+          setData(myJson)
+        });
+    }
+    if (!mount) {
+      setMount(true);
+      getData()
+    }
+
   }, [])
   return (
     <Router>
       <Container>
-        <div>
-
-
-        </div>
         <Header>
           <Menu secondary>
             <Menu.Item
@@ -67,26 +68,14 @@ function App() {
           </Menu>
         </Header>
         <Grid>
-          <Grid.Column width={4}>
-            < Image src='./image.png' rounded />
-          </Grid.Column>
-          <Grid.Column width={12}>
-            {
-              data && data.length > 0 && data.map((item) => <p key={item._id}> {item.about}</p>)
-            }
-          </Grid.Column>
+          <LeftCol />
+          <RightCol children={data} />
         </Grid>
 
         <Switch>
-          <Route path="/messages">
-            <Messages />
-          </Route>
-          <Route path="/friends">
-            <Friends />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
+          <Route path="/messages" children={<Messages />} />
+          <Route path="/friends" children={<Friends />} />
+          <Route path="/" children={<Home />} />
         </Switch>
 
       </Container>
@@ -95,7 +84,7 @@ function App() {
 }
 
 function Home() {
-  return <h2>Home</h2>;
+  return <h2>Hoomepage</h2>;
 }
 
 function Messages() {
@@ -104,6 +93,26 @@ function Messages() {
 
 function Friends() {
   return <h2>Friends</h2>;
+}
+
+function LeftCol() {
+  return (
+    <Grid.Column width={4}>
+      < Image src='./image.png' rounded />
+    </Grid.Column>
+  )
+}
+
+function RightCol(data) {
+  console.log(data)
+
+  return (
+    <Grid.Column width={12}>
+      {
+        data && data.length > 0 && data.map((item) => <p key={item._id}> {item.about}</p>)
+      }
+    </Grid.Column>
+  )
 }
 
 export default App;
