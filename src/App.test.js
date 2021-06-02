@@ -15,7 +15,7 @@ it('renders Messages Menu link', () => {
 
 it('renders Friends Menu link', () => {
   render(<App />);
-  const linkElement = screen.getByText(/frienTTds/i);
+  const linkElement = screen.getByText(/friends/i);
   expect(linkElement).toBeInTheDocument();
 });
 
