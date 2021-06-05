@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {
     Divider,
     Grid,
@@ -7,29 +7,9 @@ import {
     Icon
 } from 'semantic-ui-react'
 import LeftPanel from './LeftPanel';
+import RightPanel from './RightPanel';
 
 function Friends() {
-    const [data, setData] = useState([]);
-    const getData = () => {
-        fetch('localAPI.json'
-            , {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                }
-            }
-        )
-            .then(function (response) {
-                return response.json();
-            })
-            .then(function (myJson) {
-                console.log(myJson);
-                setData(myJson)
-            });
-    }
-    useEffect(() => {
-        getData()
-    }, [])
     return (
         <>
             <Label>
@@ -47,9 +27,7 @@ function Friends() {
                     <LeftPanel />
                 </Grid.Column>
                 <Grid.Column width={12}>
-                    {
-                        data && data.length > 0 && data.map((item) => <p key={item._id}> {item.about}</p>)
-                    }
+                    <RightPanel />
                 </Grid.Column>
             </Grid>
         </>
