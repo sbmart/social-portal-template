@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import {
+    Divider,
     Grid,
     Breadcrumb,
     Label,
-    Icon,
-    Image
+    Icon
 } from 'semantic-ui-react'
+import LeftPanel from './LeftPanel';
 
 function Friends() {
     const [data, setData] = useState([]);
@@ -31,18 +32,19 @@ function Friends() {
     }, [])
     return (
         <>
+            <Label>
+                <Icon name='home' />
+            </Label>
             <Breadcrumb>
                 <Breadcrumb.Section link>Homing</Breadcrumb.Section>
                 <Breadcrumb.Divider />
                 <Breadcrumb.Section link>Frends</Breadcrumb.Section>
                 <Breadcrumb.Divider />
             </Breadcrumb>
-            <Label>
-                <Icon name='mail' /> 23
-      </Label>
+            <Divider hidden />
             <Grid>
                 <Grid.Column width={4}>
-                    < Image src='./image.png' rounded />
+                    <LeftPanel />
                 </Grid.Column>
                 <Grid.Column width={12}>
                     {
