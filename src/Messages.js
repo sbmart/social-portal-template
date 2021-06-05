@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import {
     Grid,
     Breadcrumb,
+    Label,
+    Icon,
     Image
 } from 'semantic-ui-react'
 
-function Home() {
+function Messages() {
     const [data, setData] = useState([]);
     const getData = () => {
         fetch('localAPI.json'
@@ -32,10 +34,12 @@ function Home() {
             <Breadcrumb>
                 <Breadcrumb.Section link>Homing</Breadcrumb.Section>
                 <Breadcrumb.Divider />
-
+                <Breadcrumb.Section link>Messages</Breadcrumb.Section>
+                <Breadcrumb.Divider />
             </Breadcrumb>
-
-
+            <Label>
+                <Icon name='mail' /> Messages
+      </Label>
             <Grid>
                 <Grid.Column width={4}>
                     < Image src='./image.png' rounded />
@@ -49,4 +53,4 @@ function Home() {
         </>
     )
 }
-export default Home
+export default Messages

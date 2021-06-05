@@ -4,19 +4,27 @@ import {
     Menu,
     Input
 } from 'semantic-ui-react'
+import {
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
+import Home from './Home'
+import Messages from './Messages'
+import Friends from './Friends'
 
 function Head() {
     return (
         <Header>
             <Menu secondary>
                 <Menu.Item
-                    name='home'
+                    as={Link} to="/" name='home'
                 />
                 <Menu.Item
-                    name='messages'
+                    as={Link} to="/messages" name='messages'
                 />
                 <Menu.Item
-                    name='friends'
+                    as={Link} to="/friends" name='friends'
                 />
                 <Menu.Menu position='right'>
                     <Menu.Item>
@@ -27,6 +35,11 @@ function Head() {
                     />
                 </Menu.Menu>
             </Menu>
+            <Switch>
+                <Route path="/messages" children={<Messages />} />
+                <Route path="/friends" children={<Friends />} />
+                <Route path="/" children={<Home />} />
+            </Switch>
         </Header>
     )
 }
