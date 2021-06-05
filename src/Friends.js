@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import {
     Grid,
-    Label,
     Breadcrumb,
+    Label,
+    Icon,
     Image
 } from 'semantic-ui-react'
 
-function Home() {
+function Friends() {
     const [data, setData] = useState([]);
     const getData = () => {
         fetch('localAPI.json'
@@ -33,15 +34,12 @@ function Home() {
             <Breadcrumb>
                 <Breadcrumb.Section link>Homing</Breadcrumb.Section>
                 <Breadcrumb.Divider />
-
+                <Breadcrumb.Section link>Frends</Breadcrumb.Section>
+                <Breadcrumb.Divider />
             </Breadcrumb>
-
-
-            <Label as='a' color='yellow' image>
-                <img src='https://react.semantic-ui.com/images/avatar/small/christian.jpg' />
-      Christian
-      <Label.Detail>Co-worker</Label.Detail>
-            </Label>
+            <Label>
+                <Icon name='mail' /> 23
+      </Label>
             <Grid>
                 <Grid.Column width={4}>
                     < Image src='./image.png' rounded />
@@ -55,4 +53,4 @@ function Home() {
         </>
     )
 }
-export default Home
+export default Friends
