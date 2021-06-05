@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
+    Divider,
     Grid,
     Breadcrumb,
     Label,
@@ -40,6 +41,7 @@ function Friends() {
             <Label>
                 <Icon name='mail' /> 23
       </Label>
+            <Divider hidden />
             <Grid>
                 <Grid.Column width={4}>
                     < Image src='./image.png' rounded />

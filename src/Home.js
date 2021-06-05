@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
+    Divider,
     Grid,
     Breadcrumb,
     Image
@@ -34,6 +35,7 @@ function Home() {
                 <Breadcrumb.Divider />
 
             </Breadcrumb>
+            <Divider hidden />
 
 
             <Grid>

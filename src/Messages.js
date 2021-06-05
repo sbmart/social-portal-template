@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
+    Divider,
     Grid,
     Breadcrumb,
     Label,
@@ -40,6 +41,7 @@ function Messages() {
             <Label>
                 <Icon name='mail' /> Messages
       </Label>
+            <Divider hidden />
             <Grid>
                 <Grid.Column width={4}>
                     < Image src='./image.png' rounded />

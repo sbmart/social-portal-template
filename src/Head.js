@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+    Divider,
     Header,
     Menu,
     Input
@@ -40,6 +41,7 @@ function Head() {
                 <Route path="/friends" children={<Friends />} />
                 <Route path="/" children={<Home />} />
             </Switch>
+            <Divider hidden />
         </Header>
     )
 }
