@@ -1,8 +1,6 @@
 import React from 'react';
 import { Divider, Image, List, Segment } from 'semantic-ui-react';
-import {
-    Link
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function LeftPanel() {
     return (
@@ -11,22 +9,18 @@ function LeftPanel() {
                 <Image src='./image.png' rounded />
                 <Divider hidden />
 
-
                 <List size='big'>
-                    <List.Item as={Link} to="/messages">
+                    <List.Item as={Link} to="/profile">
                         <List.Icon name='edit' />
                         <List.Content>Анкета</List.Content>
                     </List.Item>
-                    {/* <Divider hidden /> */}
                     <List.Item as={Link} to="/messages">
                         <List.Icon name='chat' />
                         <List.Content>Мои сообщения</List.Content>
                     </List.Item>
                     <List.Item as={Link} to="/messages">
                         <List.Icon name='add user' />
-                        <List.Content>
-                            Мои лайки
-                        </List.Content>
+                        <List.Content>Мои лайки</List.Content>
                     </List.Item>
                     <List.Item as={Link} to="/messages">
                         <List.Icon name='setting' />
@@ -37,7 +31,6 @@ function LeftPanel() {
                         <List.Content>Приветствие</List.Content>
                     </List.Item>
                 </List>
-
             </Segment>
         </>
     )
