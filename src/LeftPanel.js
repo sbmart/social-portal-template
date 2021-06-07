@@ -1,5 +1,5 @@
 import React from 'react';
-import { Divider, Image, List, Segment } from 'semantic-ui-react';
+import { Divider, Image, Label, List, Segment } from 'semantic-ui-react';
 import { Link } from "react-router-dom";
 
 function LeftPanel() {
@@ -15,12 +15,19 @@ function LeftPanel() {
                         <List.Content>Анкета</List.Content>
                     </List.Item>
                     <List.Item as={Link} to="/messages">
-                        <List.Icon name='chat' />
-                        <List.Content>Мои сообщения</List.Content>
+
+                        <List.Icon name='chat' > <Label color='red' circular size='mini' floating>4</Label>  </List.Icon>
+
+
+                        <List.Content>Мои сообщения
+                        <Label color='red' circular size='mini' >12</Label>
+                        </List.Content>
                     </List.Item>
                     <List.Item as={Link} to="/messages">
                         <List.Icon name='add user' />
-                        <List.Content>Мои лайки</List.Content>
+                        <List.Content>Мои лайки
+                        <Label color='red' circular size='mini' >3</Label>
+                        </List.Content>
                     </List.Item>
                     <List.Item as={Link} to="/messages">
                         <List.Icon name='setting' />
