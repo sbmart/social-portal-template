@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Segment } from 'semantic-ui-react';
 
 function RightPanel() {
     const [data, setData] = useState([]);
@@ -24,8 +25,9 @@ function RightPanel() {
     }, [])
     return (
         <>
+
             {
-                data && data.length > 0 && data.map((item) => <p key={item._id}> {item.about}</p>)
+                data && data.length > 0 && data.map((item) => <Segment key={item._id}> {item.about}</Segment>)
             }
         </>
     )
