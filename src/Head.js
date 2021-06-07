@@ -21,6 +21,7 @@ function Head() {
                 <Menu.Item as={Link} to="/" name='home' />
                 <Menu.Item as={Link} to="/messages" name='messages' />
                 <Menu.Item as={Link} to="/friends" name='friends' />
+                {/* <Menu.Item as={Link} to="/profile" name='profile' /> */}
 
                 <Menu.Menu position='right'>
                     <Menu.Item>
@@ -32,8 +33,9 @@ function Head() {
             <Switch>
                 <Route path="/messages" children={<Messages />} />
                 <Route path="/friends" children={<Friends />} />
-                <Route path="/" children={<Home />} />
                 <Route path="/profile" children={<Profile />} />
+                <Route exact path="/" children={<Home />} />
+
             </Switch>
         </Header>
     )
