@@ -1,28 +1,12 @@
 import React
     //, { useState, useEffect }
     from 'react';
-import { Form, TextArea, Header, Input, Segment, Select } from 'semantic-ui-react';
-
-const style = {
-    h1: {
-        marginTop: '3em',
-    },
-    h2: {
-        margin: '4em 0em 2em',
-    },
-    h3: {
-        marginTop: '2em',
-        padding: '2em 0em',
-    },
-    last: {
-        marginBottom: '300px',
-    },
-}
-
+import { Button, Form, TextArea, Header, Image, Message, Segment, Select, Grid, Container } from 'semantic-ui-react';
+import './input.css'
 const aimOptions = [
-    { key: 'af', value: 'af', text: 'Занятия спортом' },
-    { key: 'ax', value: 'ax', text: 'Занятия музыкой' },
-    { key: 'al', value: 'al', text: 'Занятия живописью' },
+    { key: 'sport', value: 'sport', text: 'Занятия спортом' },
+    { key: 'music', value: 'music', text: 'Занятия музыкой' },
+    { key: 'paint', value: 'paint', text: 'Занятия живописью' },
 ]
 
 function ProfileEditable() {
@@ -49,26 +33,34 @@ function ProfileEditable() {
     //     getData()
     // }, [])
     return (
-        <Segment
-            textAlign='center'
-            style={{ minHeight: 700, padding: '1em 0em' }}
-            vertical
-        >
-            <h1>ProfileEditable</h1>
-            {/* {
-                data && data.length > 0 && data.map((item) => <Segment key={item._id}> {item.about}</Segment>)
-            } */}
-            {/* <ProfilePictures /> */}
-            <Form>
-                <Header as='h3' content='Text Container' style={style.h3} textAlign='center' />
-                <Input icon='mail' placeholder='e-mail' />
-                <Input icon='mail' placeholder='Имя' />
-                <Select placeholder='Цели' options={aimOptions} />
-                <Input icon='mail' placeholder='Адрес' />
-                <TextArea placeholder='Расскажите о себе' style={{ minHeight: 100 }} />
-            </Form>
+        <>
+            <Grid textAlign='left' style={{ height: '100vh' }} verticalAlign='top'>
+                <Grid.Column style={{ maxWidth: 650 }}>
+                    <Header as='h2' color='blue' textAlign='center'>
+                        Log-in to your account
+                    </Header>
+                    <Form size='big'>
+                        <Segment stacked>
+                            <Form.Input icon='user' iconPosition='left' placeholder='E-mail address' />
+                            <Form.Input
+                                fluid
+                                icon='lock'
+                                iconPosition='left'
+                                placeholder='Password'
+                                type='password'
+                            />
 
-        </Segment>
+                            <Button color='blue' fluid size='large'>
+                                Login
+          </Button>
+                        </Segment>
+                    </Form>
+                    <Message>
+                        New to us? <a href='#'>Sign Up</a>
+                    </Message>
+                </Grid.Column>
+            </Grid>
+        </>
     )
 }
 
