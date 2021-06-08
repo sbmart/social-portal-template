@@ -5,7 +5,7 @@ import {
     Breadcrumb,
 } from 'semantic-ui-react'
 import LeftPanel from './LeftPanel';
-import RightPanel from './RightPanel';
+import ProfileEditable from './ProfileEditable';
 
 function Profile() {
     return (
@@ -20,7 +20,7 @@ function Profile() {
                     <LeftPanel />
                 </Grid.Column>
                 <Grid.Column width={12}>
-                    <RightPanel />
+                    <ProfileEditable />
                 </Grid.Column>
             </Grid>
         </>
