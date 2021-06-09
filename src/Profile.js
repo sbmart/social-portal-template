@@ -5,13 +5,13 @@ import {
     Breadcrumb,
 } from 'semantic-ui-react'
 import LeftPanel from './LeftPanel';
-import RightPanel from './RightPanel';
+import ProfileEditable from './ProfileEditable';
 
 function Profile() {
     return (
         <>
             <Breadcrumb>
-                <Breadcrumb.Section link>Profiling</Breadcrumb.Section>
+                <Breadcrumb.Section link>Profile</Breadcrumb.Section>
                 <Breadcrumb.Divider />
             </Breadcrumb>
             <Divider hidden />
@@ -20,7 +20,7 @@ function Profile() {
                     <LeftPanel />
                 </Grid.Column>
                 <Grid.Column width={12}>
-                    <RightPanel />
+                    <ProfileEditable />
                 </Grid.Column>
             </Grid>
         </>
