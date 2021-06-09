@@ -11,7 +11,7 @@ function Profile() {
     return (
         <>
             <Breadcrumb>
-                <Breadcrumb.Section link>Profiling</Breadcrumb.Section>
+                <Breadcrumb.Section link>Profile</Breadcrumb.Section>
                 <Breadcrumb.Divider />
             </Breadcrumb>
             <Divider hidden />
