@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function LeftPanel() {
     return (
         <>
-            <Segment>
+            <Segment style={{ minWidth: 200 }} >
                 <Image src='./image.png' rounded />
                 <Divider hidden />
 

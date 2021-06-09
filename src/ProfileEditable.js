@@ -81,9 +81,8 @@ function ProfileEditable() {
 
                 {/* О СЕБЕ */}
                 <h4>О себе</h4>
-                <Form style={{ width: 500 }}>
-                    <TextArea placeholder='Расскажите о себе' />
-                </Form>
+
+                <TextArea style={{ width: 500 }} placeholder='Расскажите о себе' />
                 <Divider hidden />
                 <Form.Checkbox label='Согласен с пользовательским соглашением и политикой обработки персональных данных' />
                 <Button positive type='submit'>Сохранить</Button>
