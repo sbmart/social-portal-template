@@ -12,10 +12,8 @@ import RightPanel from './RightPanel';
 function Friends() {
     return (
         <>
-            <Label>
-                <Icon name='home' />
-            </Label>
             <Breadcrumb>
+                <Label ><Icon name='home' /></Label>
                 <Breadcrumb.Section link>Homing</Breadcrumb.Section>
                 <Breadcrumb.Divider />
                 <Breadcrumb.Section link>Frends</Breadcrumb.Section>
