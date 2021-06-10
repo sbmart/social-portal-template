@@ -16,7 +16,9 @@ function LeftPanel() {
                     </List.Item>
                     <List.Item as={Link} to="/messages">
 
-                        <List.Icon name='chat' > <Label color='red' circular size='mini' floating>4</Label>  </List.Icon>
+                        <List.Icon name='chat' >
+                            {/* <Label color='red' circular size='mini' floating>4</Label>   */}
+                        </List.Icon>
 
 
                         <List.Content>Мои сообщения
