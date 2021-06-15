@@ -21,7 +21,7 @@ function RightPanel() {
             });
     }
     useEffect(() => {
-        getData()
+        setTimeout(getData, 500)
     }, [])
     return (
         <>
