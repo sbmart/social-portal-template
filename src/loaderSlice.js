@@ -6,13 +6,16 @@ export const loaderSlice = createSlice({
         value: true,
     },
     reducers: {
-        toggle: (state) => {
-            state.value = !state.value
+        Qtrue: (state) => {
+            state.value = true
         },
+        Qfalse: (state) => {
+            state.value = false
+        }
     },
 })
 
 // Action creators are generated for each case reducer function
-export const { toggle } = loaderSlice.actions
+export const { Qtrue, Qfalse } = loaderSlice.actions
 
 export default loaderSlice.reducer

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux'
 import { Segment } from 'semantic-ui-react';
 
 function RightPanel() {
     const [data, setData] = useState([]);
+    const dispatch = useDispatch()
     const getData = () => {
         fetch('localAPI.json'
             , {
@@ -18,11 +20,12 @@ function RightPanel() {
             .then(function (myJson) {
                 console.log(myJson);
                 setData(myJson)
+                dispatch({ type: 'Qfalse' })
             });
     }
     useEffect(() => {
-        setTimeout(getData, 500)
-    }, [])
+        setTimeout(getData, 5000);
+    }, [getData])
     return (
         <>
 
