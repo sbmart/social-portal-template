@@ -4,6 +4,7 @@ import { Segment } from 'semantic-ui-react';
 function RightPanel() {
     const [data, setData] = useState([]);
     const getData = () => {
+
         fetch('localAPI.json'
             , {
                 headers: {
@@ -18,7 +19,8 @@ function RightPanel() {
             .then(function (myJson) {
                 console.log(myJson);
                 setData(myJson)
-            });
+            })
+            .catch(error => { console.warn(error) });
     }
     useEffect(() => {
         getData()
