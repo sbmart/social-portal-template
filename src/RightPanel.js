@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux'
 import { Segment } from 'semantic-ui-react';
 
 function RightPanel() {

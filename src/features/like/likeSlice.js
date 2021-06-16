@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 export const likeSlice = createSlice({
     name: 'like',
     initialState: {
-        value: 0,
+        value: 2,
     },
     reducers: {
         increment: (state) => {
