@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
+import { selectAllPosts, fetchPosts } from './features/posts/postSlice'
 import { Segment } from 'semantic-ui-react';
 
 function RightPanel() {
+    const dispatch = useDispatch()
+    const posts = useSelector(selectAllPosts)
+    const postStatus = useSelector(state => state.posts.status)
+
     const [data, setData] = useState([]);
     const getData = () => {
         fetch('localAPI.json'
@@ -21,9 +26,16 @@ function RightPanel() {
                 setData(myJson)
             });
     }
+    // useEffect(() => {
+    //     getData()
+    // }, [])
     useEffect(() => {
-        getData()
-    }, [])
+        if (postStatus === 'idle') {
+            setTimeout(() => {
+                dispatch(fetchPosts())
+            }, 1000);
+        }
+    }, [postStatus, dispatch])
     return (
         <>
 
