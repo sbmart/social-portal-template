@@ -4,10 +4,12 @@ import { selectAllPosts, fetchPosts } from './features/posts/postSlice'
 import { Segment } from 'semantic-ui-react';
 
 function RightPanel() {
+
     const dispatch = useDispatch()
     const posts = useSelector(selectAllPosts)
     const postStatus = useSelector(state => state.posts.status)
     const error = useSelector(state => state.posts.error)
+
 
     useEffect(() => {
         if (postStatus === 'idle') {
