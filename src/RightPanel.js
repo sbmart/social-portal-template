@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { selectAllPosts, fetchPosts } from './features/posts/postSlice'
 import { Segment } from 'semantic-ui-react';
 
+import Skeleton from './Skeleton'
+
 function RightPanel() {
 
     const dispatch = useDispatch()
@@ -22,7 +24,8 @@ function RightPanel() {
     let content
 
     if (postStatus === 'idle' || postStatus === 'loading') {
-        content = <div className="loader">Loading...</div>
+        // content = <div className="loader">Loading...</div>
+        content = <Skeleton />
     } else if (postStatus === 'succeeded') {
         console.log(posts.posts)
         content = posts.posts.map((item) => <Segment key={item._id}> {item.about}</Segment>)
