@@ -25,7 +25,7 @@ it('renders Search input with a Search placeholder', () => {
   expect(linkElement).toBeInTheDocument();
 });
 
-it('should render Logout link', () => {
+it('renders Logout link', () => {
   render(<App />)
   const LogoutElement = screen.getByText(/logout/i)
   expect(LogoutElement).toBeInTheDocument()

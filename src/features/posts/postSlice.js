@@ -20,9 +20,8 @@ export const postSlice = createSlice({
         error: null,
     },
     reducers: {
-        // decrement: (state) => {
-        //     state.value -= 1
-        // },
+        reactionAdded(state, action) { }, // omit logic
+        postUpdated(state, action) { } // omit logic
     },
     extraReducers: {
         [fetchPosts.pending]: (state, action) => {
@@ -41,7 +40,7 @@ export const postSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { decrement } = postSlice.actions
+export const { reactionAdded } = postSlice.actions
 
 export default postSlice.reducer
 
