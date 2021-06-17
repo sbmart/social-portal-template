@@ -19,7 +19,7 @@ function Home() {
                 <Grid.Column width={4}>
                     <LeftPanel />
                 </Grid.Column>
-                <Grid.Column width={12}>
+                <Grid.Column width={11}>
                     <RightPanel />
                 </Grid.Column>
             </Grid>

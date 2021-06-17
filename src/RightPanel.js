@@ -17,7 +17,7 @@ function RightPanel() {
         if (postStatus === 'idle') {
             setTimeout(() => {
                 dispatch(fetchPosts())
-            }, 1000);
+            }, 500);
         }
     }, [postStatus, dispatch])
 
