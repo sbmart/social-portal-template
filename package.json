@@ -46,6 +46,10 @@
       "!**/vendor/**"
     ],
     "coverageReporters": [
+      "json",
+      "lcov",
+      "text",
+      "clover",
       "html"
     ]
   },
