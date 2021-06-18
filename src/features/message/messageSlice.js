@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 export const messageSlice = createSlice({
     name: 'message',
     initialState: {
-        value: 3,
+        value: 5,
     },
     reducers: {
         increment: (state) => {
