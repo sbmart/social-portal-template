@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 
 function LeftPanel() {
     const like = useSelector((state) => state.like.value)
+    const message = useSelector((state) => state.message.value)
     return (
         <>
             <Segment style={{ minWidth: 200 }} >
@@ -25,13 +26,13 @@ function LeftPanel() {
 
 
                         <List.Content>Мои сообщения
-                            <Label color='red' circular size='mini' >{like}</Label>
+                            <Label color='red' circular size='mini' >{message}</Label>
                         </List.Content>
                     </List.Item>
                     <List.Item as={Link} to="/messages">
                         <List.Icon name='add user' />
                         <List.Content>Мои лайки
-                            <Label color='red' circular size='mini' >3</Label>
+                            <Label color='red' circular size='mini' >{like}</Label>
                         </List.Content>
                     </List.Item>
                     <List.Item as={Link} to="/messages">
