@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-export const messageSlice = createSlice({
-    name: 'message',
+export const profileSlice = createSlice({
+    name: 'profile',
     initialState: {
-        value: 5,
+        firstName: "John",
     },
     reducers: {
         increment: (state) => {
@@ -16,6 +16,6 @@ export const messageSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement } = messageSlice.actions
+export const { increment, decrement } = profileSlice.actions
 
-export default messageSlice.reducer
+export default profileSlice.reducer
