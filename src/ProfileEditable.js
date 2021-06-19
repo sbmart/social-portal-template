@@ -4,6 +4,8 @@ import React
 import { Button, Divider, Form, TextArea, Select } from 'semantic-ui-react';
 import PhotosEditable from './PhotosEditable';
 import './input.css'
+import { useForm } from "react-hook-form";
+
 const aimOptions = [
     // { key: 'none', value: 'none', text: 'ушли' },
     { key: 'sport', value: 'sport', text: 'Занятия спортом' },
@@ -12,6 +14,10 @@ const aimOptions = [
 ]
 
 function ProfileEditable() {
+    const { register, handleSubmit } = useForm();
+    const onSubmit = (data) => {
+        alert(JSON.stringify(data));
+    };
     // const [userData, setUserData] = useState([]);
 
     // const getData = () => {
@@ -37,13 +43,13 @@ function ProfileEditable() {
     return (
         <>
             <PhotosEditable />
-            <Form>
+            <Form onSubmit={handleSubmit(onSubmit)}>
                 <Form.Group widths={2}>
                     <Form.Input fluid label='E-mail' placeholder='Sbmart@ya.ru' readOnly />
                 </Form.Group>
 
                 <Form.Group widths={2}>
-                    <Form.Input label='Имя' placeholder='Имя' />
+                    <Form.Input label='Имя' placeholder='Имя'  {...register("firstName")} />
                 </Form.Group>
 
                 {/* ДАТА РОЖДЕНИЯ */}
