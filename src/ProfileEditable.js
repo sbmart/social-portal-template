@@ -5,6 +5,11 @@ import { Button, Divider, Form, TextArea, Select } from 'semantic-ui-react';
 import PhotosEditable from './PhotosEditable';
 import './input.css'
 import { useForm } from "react-hook-form";
+import {
+    useSelector,
+    useDispatch
+} from 'react-redux'
+import { editProfile, selectProfile } from './features/profile/profileSlice'
 
 const aimOptions = [
     // { key: 'none', value: 'none', text: 'ушли' },
@@ -14,49 +19,31 @@ const aimOptions = [
 ]
 
 function ProfileEditable() {
+    // const state = useSelector(selectProfile)
+    const dispatch = useDispatch()
     const { register, handleSubmit } = useForm();
     const onSubmit = (data) => {
-        alert(JSON.stringify(data));
+        // alert(JSON.stringify(data));
+        dispatch(editProfile(data));
     };
-    // const [userData, setUserData] = useState([]);
 
-    // const getData = () => {
-    //     fetch('localAPI.json'
-    //         , {
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //                 'Accept': 'application/json'
-    //             }
-    //         }
-    //     )
-    //         .then(function (response) {
-    //             return response.json();
-    //         })
-    //         .then(function (myJson) {
-    //             console.log(myJson);
-    //             setData(myJson)
-    //         });
-    // }
-    // useEffect(() => {
-    //     getData()
-    // }, [])
     return (
         <>
             <PhotosEditable />
             <Form onSubmit={handleSubmit(onSubmit)}>
                 <Form.Group widths={2}>
-                    <Form.Input fluid label='E-mail' placeholder='Sbmart@ya.ru' readOnly />
+                    <Form.Input fluid label='E-mail' placeholder='Sbmart@ya.ru' readOnly {...register("email")} />
                 </Form.Group>
 
                 <Form.Group widths={2}>
-                    <Form.Input label='Имя' placeholder='Имя'  {...register("firstName")} />
+                    <Form.Input label='Имя' placeholder='Имя' {...register("firstName")} />
                 </Form.Group>
 
                 {/* ДАТА РОЖДЕНИЯ */}
                 <Form.Group unstackable widths={5}>
-                    <Form.Select fluid label='День рождения' options={aimOptions} placeholder='День' />
-                    <Form.Select fluid label='месяц' options={aimOptions} placeholder='Месяц' />
-                    <Form.Select fluid label='год' options={aimOptions} placeholder='Год' />
+                    <Form.Select fluid label='День рождения' options={aimOptions} placeholder='День'  {...register("birthDateD")} />
+                    <Form.Select fluid label='месяц' options={aimOptions} placeholder='Месяц'  {...register("birthDateM")} />
+                    <Form.Select fluid label='год' options={aimOptions} placeholder='Год'  {...register("birthDateY")} />
                 </Form.Group>
 
                 {/* ЦЕЛЬ ЗНАКОМСТВА */}
@@ -82,13 +69,13 @@ function ProfileEditable() {
 
                 {/* АДРЕС */}
                 <Form.Group widths={2}>
-                    <Form.Input label='Адрес' placeholder='Адрес' />
+                    <Form.Input label='Адрес' placeholder='Адрес' {...register("adress")} />
                 </Form.Group>
 
                 {/* О СЕБЕ */}
                 <h4>О себе</h4>
 
-                <TextArea style={{ width: 500 }} placeholder='Расскажите о себе' />
+                <TextArea style={{ width: 500 }} placeholder='Расскажите о себе' {...register("about")} />
                 <Divider hidden />
                 <Form.Checkbox label='Согласен с пользовательским соглашением и политикой обработки персональных данных' />
                 <Button positive type='submit'>Сохранить</Button>
