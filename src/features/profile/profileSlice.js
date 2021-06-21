@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 export const profileSlice = createSlice({
     name: 'profile',
     initialState: {
-        userCard: {
+        profile: {
             email: "",
             firstName: "",
             birthDateD: "",
@@ -14,6 +14,7 @@ export const profileSlice = createSlice({
             ageTo: 0,
             adress: "",
             about: "",
+            agreed: "",
         },
     },
     reducers: {
