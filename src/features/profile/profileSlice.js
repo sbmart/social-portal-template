@@ -20,7 +20,6 @@ export const profileSlice = createSlice({
         editProfile: (state, action) => {
             state.profile = action.payload
         }
-    }
     },
 })
 
