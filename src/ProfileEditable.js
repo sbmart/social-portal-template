@@ -6,10 +6,13 @@ import PhotosEditable from './PhotosEditable';
 import './input.css'
 import { useForm } from "react-hook-form";
 import {
-    useSelector,
+    // useSelector,
     useDispatch
 } from 'react-redux'
-import { editProfile, selectProfile } from './features/profile/profileSlice'
+import {
+    editProfile,
+    // selectProfile 
+} from './features/profile/profileSlice'
 
 const aimOptions = [
     // { key: 'none', value: 'none', text: 'ушли' },

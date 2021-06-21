@@ -3,8 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 export const profileSlice = createSlice({
     name: 'profile',
     initialState: {
-        firstName: "John",
-        profile: {
+        userCard: {
             email: "",
             firstName: "",
             birthDateD: "",
@@ -18,12 +17,6 @@ export const profileSlice = createSlice({
         },
     },
     reducers: {
-        increment: (state) => {
-            state.value += 1
-        },
-        decrement: (state) => {
-            state.value -= 1
-        },
         editProfile: (state, action) => {
             state.profile = action.payload
         }
@@ -31,7 +24,7 @@ export const profileSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, editProfile } = profileSlice.actions
+export const { editProfile } = profileSlice.actions
 export const selectProfile = state => state.profile
 
 export default profileSlice.reducer
