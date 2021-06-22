@@ -7731,7 +7731,7 @@
   "version" "0.11.3"
   dependencies:
     "loader-utils" "^1.1.0"
-    "normalize-url" "1.9.1"
+    "normalize-url" "4.5.1"
     "schema-utils" "^1.0.0"
     "webpack-sources" "^1.1.0"
 
@@ -8065,12 +8065,12 @@
   "resolved" "https://registry.npmjs.org/normalize-range/-/normalize-range-0.1.2.tgz"
   "version" "0.1.2"
 
-"normalize-url@^3.0.0":
+"normalize-url@^4.5.1":
   "integrity" "sha512-U+JJi7duF1o+u2pynbp2zXDW2/PADgC30f0GsHZtRh+HOcXHnw137TrNlyxxRvWW5fjKd3bcLHPxofWuCjaeZg=="
   "resolved" "https://registry.npmjs.org/normalize-url/-/normalize-url-3.3.0.tgz"
   "version" "3.3.0"
 
-"normalize-url@1.9.1":
+"normalize-url@4.5.1":
   "integrity" "sha1-LMDWazHqIwNkWENuNiDYWVTGbDw="
   "resolved" "https://registry.npmjs.org/normalize-url/-/normalize-url-1.9.1.tgz"
   "version" "1.9.1"
@@ -9125,7 +9125,7 @@
   "version" "4.0.1"
   dependencies:
     "is-absolute-url" "^2.0.0"
-    "normalize-url" "^3.0.0"
+    "normalize-url" "^4.5.1"
     "postcss" "^7.0.0"
     "postcss-value-parser" "^3.0.0"
 
