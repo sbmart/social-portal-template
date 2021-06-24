@@ -1,4 +1,5 @@
 # Social-portal-template
 Заготовка соцсети с базовым функционалом
-![121355992-1eae7280-c939-11eb-8ea3-af7cf9a1097d](https://user-images.githubusercontent.com/2305790/123235854-edab7180-d4e4-11eb-8248-475ca14a95da.png)
+![profile](https://user-images.githubusercontent.com/2305790/123247103-30724700-d4ef-11eb-9d9c-baddadfb5486.png)
+
 
