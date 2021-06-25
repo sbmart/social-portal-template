@@ -1,13 +1,15 @@
 import './input.css'
-import { dayOptions, monthOptions, yearOptions, aimOptions, elderOptions } from './selectOptions';
 import React
     //, { useState, useEffect }
     from 'react';
-import { Button, Checkbox, Divider, Form, TextArea, Select } from 'semantic-ui-react';
-import PhotosEditable from './PhotosEditable';
+import {
+    Button,
+    Checkbox,
+    Divider, Form, TextArea, Select
+} from 'semantic-ui-react';
 import {
     useForm,
-    // Controller 
+    Controller
 } from "react-hook-form";
 import {
     // useSelector,
@@ -17,11 +19,13 @@ import {
     editProfile,
     // selectProfile 
 } from './features/profile/profileSlice'
+import { dayOptions, monthOptions, yearOptions, aimOptions, elderOptions } from './selectOptions';
+// const { dayOptions, monthOptions, yearOptions, aimOptions, elderOptions } = selectOptions();
 
-function ProfileEditable() {
+function TechnoMock() {
     // const state = useSelector(selectProfile)
     const dispatch = useDispatch()
-    const { register, handleSubmit } = useForm();
+    const { control, register, handleSubmit } = useForm();
     const onSubmit = (data) => {
         // alert(JSON.stringify(data));
         dispatch(editProfile(data));
@@ -29,7 +33,7 @@ function ProfileEditable() {
 
     return (
         <>
-            <PhotosEditable />
+            {/* <PhotosEditable /> */}
             <Form onSubmit={handleSubmit(onSubmit)}>
                 <Form.Group widths={2}>
                     <Form.Input fluid label='E-mail' placeholder='Sbmart@ya.ru' readOnly {...register("email")} />
@@ -88,15 +92,55 @@ function ProfileEditable() {
 
                 <TextArea style={{ width: 500 }} placeholder='Расскажите о себе' {...register("about")} defaultValue="" />
                 <Divider hidden />
+
+
                 {/* <Form.Checkbox label='Согласен с пользовательским соглашением и политикой обработки персональных данных'
                     {...register("agreed")} value="checked" /> */}
-                <Form.Field>
-                    <Checkbox label='I agree to the Terms and Conditions' {...register("agreed")} value="checked" />
-                </Form.Field>
+
+
+                <Controller
+                    name="MyCheckbox"
+                    control={control}
+                    defaultValue={false}
+                    rules={{ required: true }}
+                    render={props =>
+                        <Checkbox
+                            onChange={e => props.onChange(e.target.checked)}
+                            checked={props.value}
+                        />
+                    } // props contains: onChange, onBlur and value
+                />
+
+                {/* <Controller
+                    render={
+                        ({ field }) => <Select {...field}>
+                            <MenuItem value={10}>Ten</MenuItem>
+                            <MenuItem value={20}>Twenty</MenuItem>
+                        </Select>
+                    }
+                    control={control}
+                    name="select"
+                    defaultValue={10}
+                /> */}
+
+                {/* <Controller
+                    name="iceCreamType"
+                    as={Select}
+                    options={[
+                        { value: "chocolate", label: "Chocolate" },
+                        { value: "strawberry", label: "Strawberry" },
+                        { value: "vanilla", label: "Vanilla" }
+                    ]}
+                    control={control}
+                    defaultValue=""
+                /> */}
+
+
+
                 <Button positive type='submit'>Сохранить</Button>
             </Form>
         </>
     )
 }
 
-export default ProfileEditable;
+export default TechnoMock;
