@@ -13,6 +13,7 @@ import Home from './Home'
 import Messages from './Messages'
 import Friends from './Friends'
 import Profile from './Profile'
+import Likes from './Likes'
 
 function Head() {
     return (
@@ -34,6 +35,7 @@ function Head() {
                 <Route path="/messages" children={<Messages />} />
                 <Route path="/friends" children={<Friends />} />
                 <Route path="/profile" children={<Profile />} />
+                <Route path="/likes" children={<Likes />} />
                 <Route exact path="/" children={<Home />} />
 
             </Switch>

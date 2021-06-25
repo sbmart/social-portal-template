@@ -29,7 +29,7 @@ function LeftPanel() {
                             <Label color='red' circular size='mini' >{message}</Label>
                         </List.Content>
                     </List.Item>
-                    <List.Item as={Link} to="/messages">
+                    <List.Item as={Link} to="/likes">
                         <List.Icon name='add user' />
                         <List.Content>Мои лайки
                             <Label color='red' circular size='mini' >{like}</Label>
