@@ -6,8 +6,6 @@ import {
 } from 'semantic-ui-react'
 import LeftPanel from './LeftPanel';
 import Search from './Search';
-// import ProfileEditable from './ProfileEditable';
-import TechnoMock from './TechnoMock'
 
 function Likes() {
     return (
@@ -22,8 +20,6 @@ function Likes() {
                     <LeftPanel />
                 </Grid.Column>
                 <Grid.Column width={12}>
-                    {/* <ProfileEditable /> */}
-                    {/* <TechnoMock /> */}
                     <Search />
                 </Grid.Column>
             </Grid>
