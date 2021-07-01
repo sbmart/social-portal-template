@@ -98,7 +98,7 @@ function TechnoMock() {
                     {...register("agreed")} value="checked" /> */}
 
 
-                <Controller
+                {/* <Controller
                     name="MyCheckbox"
                     control={control}
                     defaultValue={false}
@@ -109,7 +109,7 @@ function TechnoMock() {
                             checked={props.value}
                         />
                     } // props contains: onChange, onBlur and value
-                />
+                /> */}
 
                 {/* <Controller
                     render={

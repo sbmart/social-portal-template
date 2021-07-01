@@ -11,7 +11,7 @@ function Home() {
     return (
         <>
             <Breadcrumb>
-                <Breadcrumb.Section link>Homing</Breadcrumb.Section>
+                <Breadcrumb.Section link>Homme</Breadcrumb.Section>
                 <Breadcrumb.Divider />
             </Breadcrumb>
             <Divider hidden />
