@@ -3,7 +3,7 @@ import { dayOptions, monthOptions, yearOptions, aimOptions, elderOptions } from 
 import React
     //, { useState, useEffect }
     from 'react';
-import { Button, Checkbox, Divider, Form, TextArea, Select } from 'semantic-ui-react';
+import { Button, Divider, Form, TextArea, Select } from 'semantic-ui-react';
 import PhotosEditable from './PhotosEditable';
 import { Formik } from 'formik';
 import {
@@ -26,7 +26,19 @@ function ProfileEditable() {
         <>
             <PhotosEditable />
             <Formik
-                initialValues={{ email: '1@2.com', name: '' }}
+                initialValues={{
+                    email: "1@1.ru",
+                    firstName: "",
+                    birthDateD: "",
+                    birthDateM: "",
+                    birthDateY: "",
+                    aim: "",
+                    ageFrom: 0,
+                    ageTo: 0,
+                    adress: "",
+                    about: "",
+                    acceptTerms: false
+                }}
                 // validate={values => {
                 //     const errors = {};
                 //     if (!values.email) {
@@ -53,6 +65,7 @@ function ProfileEditable() {
                     handleBlur,
                     handleSubmit,
                     isSubmitting,
+                    setFieldValue,
                     /* and other goodies */
                 }) => (
                     <Form onSubmit={handleSubmit}>
@@ -61,64 +74,75 @@ function ProfileEditable() {
                         </Form.Group>
 
                         <Form.Group widths={2}>
-                            <Form.Input label='Имя' placeholder='Имя' value={values.name} onChange={handleChange} type="text" name="name" />
+                            <Form.Input label='Имя' placeholder='Имя' value={values.firstName} onChange={handleChange} type="text" name="firstName" />
                         </Form.Group>
 
                         {/* ДАТА РОЖДЕНИЯ */}
                         <Form.Group unstackable widths={5}>
-                            <Form.Select fluid label='День рождения' options={dayOptions} placeholder='День' />
-                            <Form.Select fluid label='месяц' options={monthOptions} placeholder='Месяц' />
-                            <Form.Select fluid label='год' options={yearOptions} placeholder='Год' />
+                            <Form.Select fluid label='День рождения' options={dayOptions} placeholder='День' onChange={(e, { name, value }) => setFieldValue(name, value)}
+                                value={values.birthDateD}
+                                name="birthDateD" />
+                            <Form.Select fluid label='месяц' options={monthOptions} placeholder='Месяц' onChange={(e, { name, value }) => setFieldValue(name, value)}
+                                value={values.birthDateM}
+                                name="birthDateM" />
+                            <Form.Select fluid label='год' options={yearOptions} placeholder='Год' onChange={(e, { name, value }) => setFieldValue(name, value)}
+                                value={values.birthDateY}
+                                name="birthDateY" />
                         </Form.Group>
-
-                        {/* <Form.Group widths='equal'>
-                    <Form.Input fluid label='First name' placeholder='First name' />
-                    <Form.Input fluid label='Last name' placeholder='Last name' />
-                    <Form.Select
-                        fluid
-                        label='Gender'
-                        options={options}
-                        placeholder='Gender'
-                    />
-                </Form.Group> */}
 
                         {/* ЦЕЛЬ ЗНАКОМСТВА */}
                         <Form.Group unstackable widths={3}>
-                            <Form.Select fluid label='Цель знакомства' options={aimOptions} placeholder='Выберите' />
+                            <Form.Select fluid label='Цель знакомства'
+                                options={aimOptions}
+                                placeholder='Выберите'
+                                onChange={(e, { name, value }) => setFieldValue(name, value)}
+                                value={values.aim}
+                                name="aim"
+                            />
                         </Form.Group>
-
 
                         {/* ИЩУ ПАРТНЕРА ВОЗРАСТОМ */}
                         <h4>Ищу партнера возрастом</h4>
                         <Form.Group>
                             <Form.Field inline>
                                 <label>От</label>
-                                <Select options={elderOptions} placeholder='-' />
+                                <Select
+                                    selection
+                                    options={elderOptions} placeholder='-'
+                                    onChange={(e, { name, value }) => setFieldValue(name, value)}
+                                    value={values.ageFrom}
+                                    name="ageFrom"
+                                />
                             </Form.Field>
 
                             <Form.Field inline>
                                 <label>До</label>
-                                <Select options={elderOptions} placeholder='--' />
+                                <Select options={elderOptions} placeholder='--'
+                                    selection
+                                    onChange={(e, { name, value }) => setFieldValue(name, value)}
+                                    value={values.ageTo}
+                                    name="ageTo"
+                                />
                             </Form.Field>
 
                         </Form.Group>
 
                         {/* АДРЕС */}
                         <Form.Group widths={2}>
-                            <Form.Input label='Адрес' placeholder='Адрес' defaultValue="" />
+                            <Form.Input label='Адрес' placeholder='Адрес' value={values.adress} onChange={handleChange} type="text" name="adress" />
                         </Form.Group>
 
                         {/* О СЕБЕ */}
                         <h4>О себе</h4>
-
-                        <TextArea style={{ width: 500 }} placeholder='Расскажите о себе' defaultValue="" />
+                        <TextArea style={{ width: 500 }} placeholder='Расскажите о себе' value={values.about} onChange={handleChange} type="text" name="about" />
                         <Divider hidden />
+
+                        {/* СОГЛАСНЫЙ */}
                         <Form.Checkbox label='Согласен с пользовательским соглашением и политикой обработки персональных данных'
-                            value="checked" />
-                        {/* <Form.Field>
-                    <Checkbox label='I agree to the Terms and Conditions'  value="checked" />
-                </Form.Field> */}
-                        <Button positive type='submit'>Сохранить</Button>
+                            checked={values.acceptTerms} onChange={() => setFieldValue('acceptTerms', !values.acceptTerms)}
+                            type="checkbox" name="acceptTerms" />
+
+                        <Button positive type='submit' disabled={isSubmitting} >Сохранить</Button>
                     </Form>
                 )}
             </Formik>
@@ -127,3 +151,5 @@ function ProfileEditable() {
 }
 
 export default ProfileEditable;
+// onChange={(value) => setFieldValue('fruitName', value)}
+// const handleSelect = (e, { name, value }) => setFieldValue(name, value);
