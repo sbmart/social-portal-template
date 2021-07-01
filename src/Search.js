@@ -1,64 +1,65 @@
-import { useEffect, useState } from "react";
-import { Select, Button } from "semantic-ui-react";
-// import "./Search.css";
+import React from 'react';
+import { Formik } from 'formik';
 
-const Search = (props) => {
-    const [myOpt, setMyOpt] = useState([]);
-    const [dept, setDept] = useState("");
-    const [org, setOrg] = useState("");
+const Search = () => (
+    <div>
+        <h1>Anywhere in your app!</h1>
+        <Formik
+            initialValues={{ email: '', password: '' }}
+            validate={values => {
+                const errors = {};
+                if (!values.email) {
+                    errors.email = 'Required';
+                } else if (
+                    !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+                ) {
+                    errors.email = 'Invalid email address';
+                }
+                return errors;
+            }}
+            onSubmit={(values, { setSubmitting }) => {
+                setTimeout(() => {
+                    alert(JSON.stringify(values, null, 2));
+                    setSubmitting(false);
+                }, 400);
+            }}
+        >
+            {({
+                values,
+                errors,
+                touched,
+                handleChange,
+                handleBlur,
+                handleSubmit,
+                isSubmitting,
+                /* and other goodies */
+            }) => (
+                <form onSubmit={handleSubmit}>
+                    <input
+                        type="email"
+                        name="email"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.email}
+                    />
+                    {errors.email && touched.email && errors.email}
+                    <input
+                        type="password"
+                        name="password"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.password}
+                    />
+                    {errors.password && touched.password && errors.password}
+                    <button type="submit" disabled={isSubmitting}>
+                        Submit
+                    </button>
+                </form>
+            )}
+        </Formik>
+    </div>
+);
 
-    const optionsType = [
-        { value: "cpam", key: "cpam", text: "Caisse primaire d'assurance maladie" },
-        { value: "cci", key: "cci", text: "Chambre de commerce et d'industrie" },
-        { value: "crous", key: "crous", text: "Crous et ses antennes" },
-    ];
-
-    useEffect(() => {
-        fetch("https://geo.api.gouv.fr/departements").then((data) => {
-            data.json().then((jsondata) => {
-                const deptOption = jsondata.map(({ nom, code }) => ({
-                    value: code,
-                    key: code,
-                    text: nom,
-                }));
-                setMyOpt(deptOption);
-            });
-        });
-    }, []);
-
-    return (
-        <div className="search">
-            <Select
-                name=""
-                id=""
-                placeholder="Choose a department"
-                options={myOpt}
-                value={dept}
-                onChange={(e, data) => setDept(data.value)}
-            />
-            <Select
-                name=""
-                id=""
-                placeholder="Choose an administration"
-                options={optionsType}
-                value={org}
-                onChange={(e, data) => setOrg(data.value)}
-            />
-            <Button primary onClick={() => props.onSearch(dept, org)}>
-                Search
-            </Button>
-            <Button
-                secondary
-                onClick={() => {
-                    props.onEmpty();
-                    setDept("");
-                    setOrg("");
-                }}
-            >
-                Clear
-            </Button>
-        </div>
-    );
-};
+//  type="text" name="name"
 
 export default Search;
