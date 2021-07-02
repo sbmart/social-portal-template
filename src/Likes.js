@@ -3,9 +3,10 @@ import {
     Divider,
     Grid,
     Breadcrumb,
+    Menu,
 } from 'semantic-ui-react'
 import LeftPanel from './LeftPanel';
-import Search from './Search';
+import LikesSkeleton from './LikesSkeleton';
 
 function Likes() {
     return (
@@ -20,7 +21,29 @@ function Likes() {
                     <LeftPanel />
                 </Grid.Column>
                 <Grid.Column width={12}>
-                    <Search />
+
+                    <Menu pointing secondary>
+                        <Menu.Item
+                            name='Кто лайкнул меня'
+
+                        // active={activeItem === 'home'}
+                        // onClick={this.handleItemClick}
+                        />
+                        <Menu.Item
+                            name='Кого лайкнул я'
+                            active={true}
+                        // active={activeItem === 'messages'}
+                        // onClick={this.handleItemClick}
+                        />
+                        <Menu.Item
+                            name='Взаимные лайки'
+                        // active={activeItem === 'friends'}
+                        // onClick={this.handleItemClick}
+                        />
+
+                    </Menu>
+
+                    <LikesSkeleton />
                 </Grid.Column>
             </Grid>
         </>

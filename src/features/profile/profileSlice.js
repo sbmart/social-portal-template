@@ -14,7 +14,7 @@ export const profileSlice = createSlice({
             ageTo: 0,
             adress: "",
             about: "",
-            agreed: "",
+            acceptTerms: false
         },
     },
     reducers: {
