@@ -50,6 +50,7 @@ function ProfileEditable() {
                 //     }
                 //     return errors;
                 // }}
+
                 onSubmit={(values, { setSubmitting }) => {
                     setTimeout(() => {
                         alert(JSON.stringify(values, null, 2));
@@ -73,8 +74,11 @@ function ProfileEditable() {
                             <Form.Input fluid label='E-mail' readOnly value={values.email} onChange={handleChange} />
                         </Form.Group>
 
+                        {/* ИМЯ */}
                         <Form.Group widths={2}>
-                            <Form.Input label='Имя' placeholder='Имя' value={values.firstName} onChange={handleChange} type="text" name="firstName" />
+                            <Form.Input label='Имя' placeholder='Имя' value={values.firstName} onBlur={handleBlur}
+                                onChange={handleChange} type="text" name="firstName"
+                            />
                         </Form.Group>
 
                         {/* ДАТА РОЖДЕНИЯ */}
@@ -142,7 +146,7 @@ function ProfileEditable() {
                             checked={values.acceptTerms} onChange={() => setFieldValue('acceptTerms', !values.acceptTerms)}
                             type="checkbox" name="acceptTerms" />
 
-                        <Button positive type='submit' disabled={isSubmitting} >Сохранить</Button>
+                        <Button positive type='submit' disabled={isSubmitting || !values.acceptTerms} >Сохранить</Button>
                     </Form>
                 )}
             </Formik>
