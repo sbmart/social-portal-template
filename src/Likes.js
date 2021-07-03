@@ -7,6 +7,7 @@ import {
 } from 'semantic-ui-react'
 import LeftPanel from './LeftPanel';
 import LikesSkeleton from './LikesSkeleton';
+import LikesPanel from './LikesPanel';
 
 function Likes() {
     return (
@@ -43,7 +44,7 @@ function Likes() {
 
                     </Menu>
 
-                    <LikesSkeleton />
+                    <LikesPanel />
                 </Grid.Column>
             </Grid>
         </>

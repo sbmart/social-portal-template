@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 
 
 function LeftPanel() {
-    const like = useSelector((state) => state.like.value)
+    const like = useSelector((state) => state.likes.value)
     const message = useSelector((state) => state.message.value)
     return (
         <>

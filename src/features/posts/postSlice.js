@@ -42,6 +42,6 @@ export const postSlice = createSlice({
 // Action creators are generated for each case reducer function
 export const { reactionAdded } = postSlice.actions
 
-export default postSlice.reducer
-
 export const selectAllPosts = state => state.posts
+
+export default postSlice.reducer

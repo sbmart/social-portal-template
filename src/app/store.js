@@ -6,7 +6,7 @@ import profileReducer from '../features/profile/profileSlice'
 
 export default configureStore({
     reducer: {
-        like: likeReducer,
+        likes: likeReducer,
         message: messageReducer,
         posts: postReducer,
         profile: profileReducer,
