@@ -53,7 +53,7 @@ function ProfileEditable() {
 
                 onSubmit={(values, { setSubmitting }) => {
                     setTimeout(() => {
-                        // alert(JSON.stringify(values, null, 2));
+                        dispatch(editProfile(values));
                         setSubmitting(false);
                     }, 400);
                 }}
