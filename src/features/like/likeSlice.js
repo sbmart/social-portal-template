@@ -1,6 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import { sleep } from '../../utils';
 
 export const fetchLikes = createAsyncThunk('likes/fetchLikes', async () => {
+    await sleep(2000);
     const response = await fetch('localAPI.json')
     return response.json();
 })

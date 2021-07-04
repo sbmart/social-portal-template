@@ -1,14 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import { sleep } from '../../utils';
 
 export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
-    const response = await fetch('localAPI.json'
-        , {
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            }
-        }
-    )
+    const response = await fetch('localAPI.json')
+    await sleep(3000);
     return response.json();
 })
 

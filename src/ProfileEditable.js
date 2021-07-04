@@ -14,13 +14,10 @@ import {
     editProfile,
     // selectProfile 
 } from './features/profile/profileSlice'
+import { sleep } from './utils';
 
 function ProfileEditable() {
     const dispatch = useDispatch()
-    // const onSubmit = (data) => {
-    //     alert(JSON.stringify(data));
-    // dispatch(editProfile(data));
-    // };
 
     return (
         <>
@@ -54,6 +51,7 @@ function ProfileEditable() {
                 onSubmit={(values, { setSubmitting }) => {
                     setTimeout(() => {
                         // alert(JSON.stringify(values, null, 2));
+                        dispatch(editProfile(values));
                         setSubmitting(false);
                     }, 400);
                 }}

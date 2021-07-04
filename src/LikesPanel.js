@@ -16,9 +16,9 @@ function LikesPanel() {
 
     useEffect(() => {
         if (likesStatus === 'idle') {
-            setTimeout(() => {
-                dispatch(fetchLikes())
-            }, 500);
+            // setTimeout(() => {
+            // }, 500);
+            dispatch(fetchLikes())
         }
     }, [likesStatus, dispatch])
 
