@@ -1,14 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
 export const fetchLikes = createAsyncThunk('likes/fetchLikes', async () => {
-    const response = await fetch('localAPI.json'
-        , {
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            }
-        }
-    )
+    const response = await fetch('localAPI.json')
     return response.json();
 })
 
@@ -48,7 +41,7 @@ export const likeSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = likeSlice.actions
+export const { increment, decrement, set, incrementByAmount } = likeSlice.actions
 
 export const selectAllLikes = state => state.likes
 

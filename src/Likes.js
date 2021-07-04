@@ -6,7 +6,6 @@ import {
     Menu,
 } from 'semantic-ui-react'
 import LeftPanel from './LeftPanel';
-import LikesSkeleton from './LikesSkeleton';
 import LikesPanel from './LikesPanel';
 
 function Likes() {
