@@ -1,16 +1,22 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import { sleep } from '../../utils';
+
+export const fetchLikes = createAsyncThunk('likes/fetchLikes', async () => {
+    await sleep(2000);
+    const response = await fetch('localAPI.json')
+    return response.json();
+})
 
 export const likeSlice = createSlice({
-    name: 'like',
+    name: 'likes',
     initialState: {
         value: 2,
+        likes: [],
+        status: 'idle',
+        error: null,
     },
     reducers: {
         increment: (state) => {
-            // Redux Toolkit allows us to write "mutating" logic in reducers. It
-            // doesn't actually mutate the state because it uses the Immer library,
-            // which detects changes to a "draft state" and produces a brand new
-            // immutable state based off those changes
             state.value += 1
         },
         decrement: (state) => {
@@ -20,9 +26,25 @@ export const likeSlice = createSlice({
             state.value += action.payload
         },
     },
+    extraReducers: {
+        [fetchLikes.pending]: (state, action) => {
+            state.status = 'loading'
+        },
+        [fetchLikes.fulfilled]: (state, action) => {
+            state.status = 'succeeded'
+            // Add any fetched likes to the array
+            state.likes = state.likes.concat(action.payload)
+        },
+        [fetchLikes.rejected]: (state, action) => {
+            state.status = 'failed'
+            state.error = action.error.message
+        }
+    }
 })
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = likeSlice.actions
+export const { increment, decrement, set, incrementByAmount } = likeSlice.actions
+
+export const selectAllLikes = state => state.likes
 
 export default likeSlice.reducer

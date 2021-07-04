@@ -15,9 +15,7 @@ function RightPanel() {
 
     useEffect(() => {
         if (postStatus === 'idle') {
-            setTimeout(() => {
-                dispatch(fetchPosts())
-            }, 500);
+            dispatch(fetchPosts())
         }
     }, [postStatus, dispatch])
 

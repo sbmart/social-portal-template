@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 
 
 function LeftPanel() {
-    const like = useSelector((state) => state.like.value)
+    const like = useSelector((state) => state.likes.value)
     const message = useSelector((state) => state.message.value)
     return (
         <>
@@ -25,19 +25,19 @@ function LeftPanel() {
                         </List.Icon>
 
 
-                        <List.Content>Мои сообщения
+                        <List.Content>Сообщения
                             <Label color='red' circular size='mini' >{message}</Label>
                         </List.Content>
                     </List.Item>
                     <List.Item as={Link} to="/likes">
                         <List.Icon name='add user' />
-                        <List.Content>Мои лайки
+                        <List.Content>Лайки
                             <Label color='red' circular size='mini' >{like}</Label>
                         </List.Content>
                     </List.Item>
                     <List.Item as={Link} to="/messages">
                         <List.Icon name='setting' />
-                        <List.Content>Настройки аккаунта</List.Content>
+                        <List.Content>Настройки</List.Content>
                     </List.Item>
                     <List.Item as={Link} to="/messages">
                         <List.Icon name='hand peace' />

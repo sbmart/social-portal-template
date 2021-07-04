@@ -1,14 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import { sleep } from '../../utils';
 
 export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
-    const response = await fetch('localAPI.json'
-        , {
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            }
-        }
-    )
+    const response = await fetch('localAPI.json')
+    await sleep(3000);
     return response.json();
 })
 
@@ -42,6 +37,6 @@ export const postSlice = createSlice({
 // Action creators are generated for each case reducer function
 export const { reactionAdded } = postSlice.actions
 
-export default postSlice.reducer
-
 export const selectAllPosts = state => state.posts
+
+export default postSlice.reducer
