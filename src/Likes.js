@@ -7,8 +7,14 @@ import {
 } from 'semantic-ui-react'
 import LeftPanel from './LeftPanel';
 import LikesPanel from './LikesPanel';
+import { useSelector, useDispatch } from 'react-redux'
+import { selectAllLikes, changeColumn } from './features/like/likeSlice';
 
 function Likes() {
+
+    const dispatch = useDispatch()
+    const activePanel = useSelector(selectAllLikes)
+
     return (
         <>
             <Breadcrumb>
@@ -26,19 +32,18 @@ function Likes() {
                         <Menu.Item
                             name='Кто лайкнул меня'
 
-                        // active={activeItem === 'home'}
-                        // onClick={this.handleItemClick}
+                            active={activePanel.activeItem === 'meLiked'}
+                            onClick={() => dispatch(changeColumn('meLiked'))}
                         />
                         <Menu.Item
                             name='Кого лайкнул я'
-                            active={true}
-                        // active={activeItem === 'messages'}
-                        // onClick={this.handleItemClick}
+                            active={activePanel.activeItem === 'iLiked'}
+                            onClick={() => dispatch(changeColumn('iLiked'))}
                         />
                         <Menu.Item
                             name='Взаимные лайки'
-                        // active={activeItem === 'friends'}
-                        // onClick={this.handleItemClick}
+                            active={activePanel.activeItem === 'weLiked'}
+                            onClick={() => dispatch(changeColumn('weLiked'))}
                         />
 
                     </Menu>

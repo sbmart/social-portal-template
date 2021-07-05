@@ -10,20 +10,24 @@ export const fetchLikes = createAsyncThunk('likes/fetchLikes', async () => {
 export const likeSlice = createSlice({
     name: 'likes',
     initialState: {
-        value: 2,
+        activeItem: 'iLiked',
+        newLikes: 2,
         likes: [],
         status: 'idle',
         error: null,
     },
     reducers: {
         increment: (state) => {
-            state.value += 1
+            state.newLikes += 1
         },
         decrement: (state) => {
-            state.value -= 1
+            state.newLikes -= 1
         },
-        incrementByAmount: (state, action) => {
-            state.value += action.payload
+        resetLikes: (state) => {
+            state.newLikes = 0
+        },
+        changeColumn: (state, action) => {
+            state.activeItem = action.payload
         },
     },
     extraReducers: {
@@ -43,7 +47,7 @@ export const likeSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, set, incrementByAmount } = likeSlice.actions
+export const { increment, decrement, changeColumn, resetLikes } = likeSlice.actions
 
 export const selectAllLikes = state => state.likes
 
