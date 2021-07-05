@@ -5,8 +5,8 @@ import { useSelector } from 'react-redux';
 
 
 function LeftPanel() {
-    const like = useSelector((state) => state.likes.value)
-    const message = useSelector((state) => state.message.value)
+    const like = useSelector((state) => state.likes.newLikes)
+    const message = useSelector((state) => state.message.newMessages)
     return (
         <>
             <Segment style={{ minWidth: 200 }} >

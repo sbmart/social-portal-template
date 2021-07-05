@@ -3,14 +3,14 @@ import { createSlice } from '@reduxjs/toolkit'
 export const messageSlice = createSlice({
     name: 'message',
     initialState: {
-        value: 5,
+        newMessages: 5,
     },
     reducers: {
         increment: (state) => {
-            state.value += 1
+            state.newMessages += 1
         },
         decrement: (state) => {
-            state.value -= 1
+            state.newMessages -= 1
         },
     },
 })

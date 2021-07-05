@@ -1,23 +1,23 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { selectAllLikes, fetchLikes } from './features/like/likeSlice'
-import { Divider, Feed, Icon, Segment } from 'semantic-ui-react';
+import { Feed, Segment } from 'semantic-ui-react';
 import LikesSkeleton from './LikesSkeleton'
 
-const src = './image.png'
+// const src = './image.png'
+const src = './man.svg'
 
 function LikesPanel() {
 
     const dispatch = useDispatch()
     const likes = useSelector(selectAllLikes)
+    // const activePanel = useSelector(selectAllLikes)
     const likesStatus = useSelector(state => state.likes.status)
     const error = useSelector(state => state.likes.error)
 
 
     useEffect(() => {
         if (likesStatus === 'idle') {
-            // setTimeout(() => {
-            // }, 500);
             dispatch(fetchLikes())
         }
     }, [likesStatus, dispatch])
@@ -36,12 +36,12 @@ function LikesPanel() {
                     <Feed.Label>
                         <img src={src} />
                         {/* <Divider hidden /> */}
-                        <Feed.Meta>
-
+                        <Feed.Meta style={{ textAlign: 'center' }}>
+                            {item.age}
                         </Feed.Meta>
                     </Feed.Label>
                     <Feed.Content>
-                        <Feed.Date content={item.age} />
+                        <Feed.Date content={item.name.first + " " + item.name.last + " " + item.age} />
                         <Feed.Summary>
                             Вы поставили лайк <Feed.User as='text' >{item.name.first}</Feed.User>
                             <Feed.Date>{item.registered}</Feed.Date>
