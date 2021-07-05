@@ -17,10 +17,10 @@ export const likeSlice = createSlice({
         error: null,
     },
     reducers: {
-        increment: (state) => {
+        incrementLikes: (state) => {
             state.newLikes += 1
         },
-        decrement: (state) => {
+        decrementLikes: (state) => {
             state.newLikes -= 1
         },
         resetLikes: (state) => {
@@ -47,7 +47,7 @@ export const likeSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, changeColumn, resetLikes } = likeSlice.actions
+export const { incrementLikes, decrementLikes, changeColumn, resetLikes } = likeSlice.actions
 
 export const selectAllLikes = state => state.likes
 
