@@ -18,27 +18,27 @@ function LeftPanel() {
                         <List.Icon name='edit' />
                         <List.Content>Анкета</List.Content>
                     </List.Item>
+
                     <List.Item as={Link} to="/messages">
-
                         <List.Icon name='chat' >
-                            {/* <Label color='red' circular size='mini' floating>4</Label>   */}
                         </List.Icon>
-
-
                         <List.Content>Сообщения
                             <Label color='red' circular size='mini' >{message}</Label>
                         </List.Content>
                     </List.Item>
+
                     <List.Item as={Link} to="/likes">
                         <List.Icon name='add user' />
                         <List.Content>Лайки
                             <Label color='red' circular size='mini' >{like}</Label>
                         </List.Content>
                     </List.Item>
-                    <List.Item as={Link} to="/messages">
+
+                    <List.Item as={Link} to="/settings">
                         <List.Icon name='setting' />
                         <List.Content>Настройки</List.Content>
                     </List.Item>
+
                     <List.Item as={Link} to="/messages">
                         <List.Icon name='hand peace' />
                         <List.Content>Приветствие</List.Content>

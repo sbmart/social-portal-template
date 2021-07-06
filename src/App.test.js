@@ -19,11 +19,11 @@ it('renders Friends Menu link', () => {
   expect(linkElement).toBeInTheDocument();
 });
 
-it('renders Search input with a Search placeholder', () => {
-  render(<App />);
-  const linkElement = screen.getByPlaceholderText(/search/i);
-  expect(linkElement).toBeInTheDocument();
-});
+// it('renders Search input with a Search placeholder', () => {
+//   render(<App />);
+//   const linkElement = screen.getByPlaceholderText(/search/i);
+//   expect(linkElement).toBeInTheDocument();
+// });
 
 it('renders Logout link', () => {
   render(<App />)
