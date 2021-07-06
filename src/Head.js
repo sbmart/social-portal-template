@@ -2,7 +2,7 @@ import React from 'react';
 import {
     Header,
     Menu,
-    Input
+    //Input
 } from 'semantic-ui-react'
 import {
     Switch,
@@ -14,6 +14,8 @@ import Messages from './Messages'
 import Friends from './Friends'
 import Profile from './Profile'
 import Likes from './Likes'
+import Settings from './Settings';
+
 
 function Head() {
     return (
@@ -22,12 +24,12 @@ function Head() {
                 <Menu.Item as={Link} to="/" name='home' />
                 <Menu.Item as={Link} to="/messages" name='messages' />
                 <Menu.Item as={Link} to="/friends" name='friends' />
-                {/* <Menu.Item as={Link} to="/profile" name='profile' /> */}
+                {/* <Menu.Item as={Link} to="/settins" name='settins' /> */}
 
                 <Menu.Menu position='right'>
-                    <Menu.Item>
+                    {/* <Menu.Item>
                         <Input icon='search' placeholder='Search...' />
-                    </Menu.Item>
+                    </Menu.Item> */}
                     <Menu.Item name='logout' />
                 </Menu.Menu>
             </Menu>
@@ -36,6 +38,7 @@ function Head() {
                 <Route path="/friends" children={<Friends />} />
                 <Route path="/profile" children={<Profile />} />
                 <Route path="/likes" children={<Likes />} />
+                <Route path="/settings" children={<Settings />} />
                 <Route exact path="/" children={<Home />} />
 
             </Switch>
