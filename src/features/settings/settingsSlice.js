@@ -9,18 +9,22 @@ export const settingsSlice = createSlice({
             confirmPassword: "",
             recievePushNotifications: false,
             recieveMailNotifications: false,
+            openDeletionModal: false,
         },
     },
     reducers: {
         editSettings: (state, action) => {
             state.settings = action.payload
-        }
+        },
+        toggleDeletionModal: (state) => {
+            state.settings.openDeletionModal = !state.settings.openDeletionModal
+        },
     },
 })
 
-// Action creators are generated for each case reducer function
-export const { editSettings } = settingsSlice.actions
-export const selectSettings = state => state.settings
-export const selectPassword = state => state.settings
+export const { editSettings, toggleDeletionModal } = settingsSlice.actions
+
+// export const selectSettings = state => state.settings
+export const selectModalOpen = (state) => state.settings.openDeletionModal
 
 export default settingsSlice.reducer
