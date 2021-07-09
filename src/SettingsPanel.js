@@ -2,8 +2,14 @@ import './input.css'
 import React from 'react';
 import { Button, Divider, Form, Header, Icon, Modal } from 'semantic-ui-react';
 import { Formik } from 'formik';
-import { useDispatch, useSelector } from 'react-redux'
-import { editSettings, toggleDeletionModal, selectModalOpen } from './features/settings/settingsSlice'
+import {
+    useDispatch,
+    //useSelector
+} from 'react-redux'
+import {
+    editSettings, toggleDeletionModal,
+    //selectModalOpen
+} from './features/settings/settingsSlice'
 //import { sleep } from './utils';
 
 function Settings() {
