@@ -1,4 +1,4 @@
-import './input.css'
+import '../../input.css'
 import React from 'react';
 import { Button, Divider, Form, Header, Icon, Modal } from 'semantic-ui-react';
 import { Formik } from 'formik';
@@ -9,7 +9,7 @@ import {
 import {
     editSettings, toggleDeletionModal,
     //selectModalOpen
-} from './features/settings/settingsSlice'
+} from './settingsSlice'
 
 //import { sleep } from './utils';
 

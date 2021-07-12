@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchLikes } from './features/like/likeSlice'
+import { fetchLikes } from './likeSlice'
 import LikesSkeleton from './LikesSkeleton'
 import MeLikesContent from './meLikesContent'
 import WeLikesContent from './weLikesContent'

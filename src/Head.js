@@ -10,11 +10,11 @@ import {
     Link
 } from "react-router-dom";
 import Home from './Home'
-import Messages from './Messages'
+import Messages from './features/message/Messages'
 import Friends from './Friends'
-import Profile from './Profile'
-import Likes from './Likes'
-import Settings from './Settings';
+import Profile from './features/profile/Profile'
+import Likes from './features/like/Likes'
+import Settings from './features/settings/Settings';
 
 
 function Head() {

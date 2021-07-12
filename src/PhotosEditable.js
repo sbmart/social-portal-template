@@ -7,7 +7,7 @@ import {
 } from 'semantic-ui-react'
 import { useDropzone } from 'react-dropzone'
 
-const src = './image.png'
+// const src = './image.png'
 const images = [
     {
         original: 'https://picsum.photos/id/1015/1000/600/',

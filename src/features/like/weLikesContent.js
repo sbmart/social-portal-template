@@ -2,9 +2,9 @@ import React from 'react';
 import { Feed, Segment } from 'semantic-ui-react';
 import { src } from './LikesPanel';
 import { useSelector } from 'react-redux'
-import { selectAllLikes } from './features/like/likeSlice'
+import { selectAllLikes } from './likeSlice'
 
-export default function ILikesContent() {
+export default function WeLikesContent() {
     const likes = useSelector(selectAllLikes)
     return likes.likes.map((item) => <Segment key={item._id}>
         <Feed>
@@ -18,7 +18,7 @@ export default function ILikesContent() {
                 <Feed.Content>
                     <Feed.Date content={item.name.first + " " + item.name.last + " " + item.age} />
                     <Feed.Summary>
-                        Вы поставили лайк <Feed.User as='p'>{item.name.first}</Feed.User>
+                        Mы поставили лайк <Feed.User as='p'>{item.name.first}</Feed.User>
                         <Feed.Date>{item.registered} </Feed.Date>
                     </Feed.Summary>
                 </Feed.Content>

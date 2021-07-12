@@ -1,10 +1,10 @@
-import './input.css'
-import { dayOptions, monthOptions, yearOptions, aimOptions, elderOptions } from './selectOptions';
+import '../../input.css'
+import { dayOptions, monthOptions, yearOptions, aimOptions, elderOptions } from '../../selectOptions';
 import React
     //, { useState, useEffect }
     from 'react';
 import { Button, Divider, Form, TextArea, Select } from 'semantic-ui-react';
-import PhotosEditable from './PhotosEditable';
+import PhotosEditable from '../../PhotosEditable';
 import { Formik } from 'formik';
 import {
     // useSelector,
@@ -13,7 +13,7 @@ import {
 import {
     editProfile,
     // selectProfile 
-} from './features/profile/profileSlice'
+} from './profileSlice'
 //import { sleep } from './utils';
 
 function ProfileEditable() {

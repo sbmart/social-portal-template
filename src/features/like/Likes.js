@@ -5,10 +5,10 @@ import {
     Breadcrumb,
     Menu,
 } from 'semantic-ui-react'
-import LeftPanel from './LeftPanel';
+import LeftPanel from '../../LeftPanel';
 import LikesPanel from './LikesPanel';
 import { useSelector, useDispatch } from 'react-redux'
-import { selectAllLikes, changeColumn } from './features/like/likeSlice';
+import { selectAllLikes, changeColumn } from './likeSlice';
 
 function Likes() {
 
