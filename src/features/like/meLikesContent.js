@@ -2,7 +2,7 @@ import React from 'react';
 import { Feed, Segment } from 'semantic-ui-react';
 import { src } from './LikesPanel';
 import { useSelector } from 'react-redux'
-import { selectAllLikes } from './features/like/likeSlice'
+import { selectAllLikes } from './likeSlice'
 
 export default function MeLikesContent() {
     const likes = useSelector(selectAllLikes)

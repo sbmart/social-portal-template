@@ -3,22 +3,15 @@ import {
     Divider,
     Grid,
     Breadcrumb,
-    Label,
-    Icon
 } from 'semantic-ui-react'
-import LeftPanel from './LeftPanel';
-import RightPanel from './RightPanel';
+import LeftPanel from '../../LeftPanel';
+import ProfileEditable from './ProfileEditable';
 
-function Messages() {
+function Profile() {
     return (
         <>
-            <Label>
-                <Icon name='mail' />
-            </Label>
             <Breadcrumb>
-                <Breadcrumb.Section link>Homing</Breadcrumb.Section>
-                <Breadcrumb.Divider />
-                <Breadcrumb.Section link>Messages</Breadcrumb.Section>
+                <Breadcrumb.Section link>Profile</Breadcrumb.Section>
                 <Breadcrumb.Divider />
             </Breadcrumb>
             <Divider hidden />
@@ -27,10 +20,10 @@ function Messages() {
                     <LeftPanel />
                 </Grid.Column>
                 <Grid.Column width={12}>
-                    <RightPanel />
+                    <ProfileEditable />
                 </Grid.Column>
             </Grid>
         </>
     )
 }
-export default Messages
+export default Profile

@@ -4,7 +4,7 @@ import {
     Grid,
     Breadcrumb,
 } from 'semantic-ui-react'
-import LeftPanel from './LeftPanel';
+import LeftPanel from '../../LeftPanel';
 import SettingsPanel from './SettingsPanel';
 
 function Settings() {
