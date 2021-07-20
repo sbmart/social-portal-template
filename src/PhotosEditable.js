@@ -7,6 +7,10 @@ import {
 } from 'semantic-ui-react'
 import { useDropzone } from 'react-dropzone'
 
+import Amplify, { Storage } from 'aws-amplify'
+import awsExports from "./aws-exports";
+Amplify.configure(awsExports);
+
 // const src = './image.png'
 const images = [
     {
@@ -53,12 +57,30 @@ const images = [
 
 function PhotosEditable() {
     const onDrop = useCallback(acceptedFiles => {
-        console.log('files DragNdropped')
+        Storage.put(acceptedFiles.name, acceptedFiles)
+        console.log(acceptedFiles + (typeof acceptedFiles) + ' files DragNdropped')
     }, [])
     const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
 
+    async function onChange(e) {
+        const file = e.target.files[0];
+        try {
+            await Storage.put(file.name, file, {
+                contentType: 'image/png' // contentType is optional
+            });
+
+        } catch (error) {
+            console.log('Error uploading file: ', error);
+        }
+    }
+
     return (
         <>
+            {/* Adding Files to S3 mock */}
+            <input
+                type="file"
+                onChange={onChange}
+            />
             <div {...getRootProps()}>
                 <input {...getInputProps()} />
                 {
@@ -77,12 +99,6 @@ function PhotosEditable() {
             </div>
             <Divider hidden />
             <ImageGallery items={images} showNav={false} showFullscreenButton={false} showPlayButton={false} />
-            {/* <Image.Group size='tiny'>
-                <Image src={src} />
-                <Image src={src} />
-                <Image src={src} />
-                <Image src={src} />
-            </Image.Group> */}
             <Divider hidden />
         </>
     )

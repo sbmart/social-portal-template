@@ -1,0 +1,16 @@
+{
+  "auth": {
+    "socialportaltemplate781b72d8": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  },
+  "storage": {
+    "socialPortalPics": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation"
+    }
+  }
+}
