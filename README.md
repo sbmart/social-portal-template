@@ -6,7 +6,14 @@
 скелет загрузки сообщений:
 ![LoadMessagesSkeleton](https://user-images.githubusercontent.com/2305790/124147096-101a2d80-da97-11eb-83e4-4657c499cbff.png)
 
+To start an App: git clone it, npm i && npm start
 
-To add a storage to the project :=>  amplify init --y && amplify add storage && amplify auth push && amplify mock storage
+To add a storage to the project :=>  amplify init --y `&&` amplify add storage `&&` amplify auth push `&&` amplify mock storage
 
 To Pull sensetive aws info after gitclone :=>  amplify pull
+
+
+
+
+
+
